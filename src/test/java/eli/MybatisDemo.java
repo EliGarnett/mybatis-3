@@ -34,7 +34,7 @@ public class MybatisDemo {
 
     public static DruidDataSource getDataSource() {
         DruidDataSource druidDataSource = new DruidDataSource();
-        druidDataSource.setUrl("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true");
+        druidDataSource.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC");
         druidDataSource.setUsername("root");
         druidDataSource.setPassword("root");
         return druidDataSource;
