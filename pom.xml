@@ -17,6 +17,7 @@
 
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<<<<<<< HEAD
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -264,6 +265,16 @@
       <version>2.5</version>
       <scope>test</scope>
     </dependency>
+      <dependency>
+          <groupId>com.alibaba</groupId>
+          <artifactId>druid</artifactId>
+          <version>1.2.6</version>
+      </dependency>
+      <dependency>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>1.18.20</version>
+      </dependency>
   </dependencies>
 
   <build>
@@ -387,8 +398,8 @@
         <jdk>1.6</jdk>
       </activation>
       <properties>
-        <maven.compiler.testTarget>1.6</maven.compiler.testTarget>
-        <maven.compiler.testSource>1.6</maven.compiler.testSource>
+        <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
+        <maven.compiler.testSource>1.8</maven.compiler.testSource>
         <maven.compiler.testCompilerArgument />
       </properties>
       <build>
