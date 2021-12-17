@@ -59,15 +59,31 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
     return mapperMethod.execute(sqlSession, args);
   }
 
+<<<<<<< HEAD
   private MapperMethod cachedMapperMethod(Method method) {
     MapperMethod mapperMethod = methodCache.get(method);
     if (mapperMethod == null) {
       mapperMethod = new MapperMethod(mapperInterface, method, sqlSession.getConfiguration());
       methodCache.put(method, mapperMethod);
+=======
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        // 如果这个method所属的类是Object类，则直接反射执行
+        if (Object.class.equals(method.getDeclaringClass())) {
+            try {
+                return method.invoke(this, args);
+            } catch (Throwable t) {
+                throw ExceptionUtil.unwrapThrowable(t);
+            }
+        }
+        final MapperMethod mapperMethod = cachedMapperMethod(method);
+        return mapperMethod.execute(sqlSession, args);
+>>>>>>> 46ba164853 (modify code)
     }
     return mapperMethod;
   }
 
+<<<<<<< HEAD
   @UsesJava7
   private Object invokeDefaultMethod(Object proxy, Method method, Object[] args)
       throws Throwable {
@@ -75,6 +91,10 @@ public class MapperProxy<T> implements InvocationHandler, Serializable {
         .getDeclaredConstructor(Class.class, int.class);
     if (!constructor.isAccessible()) {
       constructor.setAccessible(true);
+=======
+    private MapperMethod cachedMapperMethod(Method method) {
+        return methodCache.computeIfAbsent(method, k -> new MapperMethod(mapperInterface, method, sqlSession.getConfiguration()));
+>>>>>>> 46ba164853 (modify code)
     }
     final Class<?> declaringClass = method.getDeclaringClass();
     return constructor
