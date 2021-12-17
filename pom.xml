@@ -29,12 +29,7 @@
     <packaging>jar</packaging>
 
     <name>mybatis</name>
-    <description>
-        The MyBatis SQL mapper framework makes it easier to use a relational database with object-oriented
-        applications. MyBatis couples objects with stored procedures or SQL statements using a XML descriptor or
-        annotations. Simplicity is the biggest advantage of the MyBatis data mapper over object relational mapping
-        tools.
-    </description>
+
 
     <properties>
         <clirr.comparisonVersion>3.3.0</clirr.comparisonVersion>
@@ -153,6 +148,16 @@
             <artifactId>postgresql</artifactId>
             <version>9.1-901-1.jdbc4</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.2.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
         </dependency>
     </dependencies>
 
