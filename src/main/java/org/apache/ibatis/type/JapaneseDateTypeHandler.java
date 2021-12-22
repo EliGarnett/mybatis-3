@@ -29,8 +29,8 @@ import java.time.chrono.JapaneseDate;
 /**
  * Type Handler for {@link JapaneseDate}.
  *
- * @since 3.4.5
  * @author Kazuki Shimizu
+ * @since 3.4.5
  */
 @UsesJava8
 public class JapaneseDateTypeHandler extends BaseTypeHandler<JapaneseDate> {

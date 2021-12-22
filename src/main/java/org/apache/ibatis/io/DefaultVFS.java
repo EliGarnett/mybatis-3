@@ -44,7 +44,9 @@ public class DefaultVFS extends VFS {
 
     private static final Log log = LogFactory.getLog(DefaultVFS.class);
 
-    /** The magic header that indicates a JAR (ZIP) file. */
+    /**
+     * The magic header that indicates a JAR (ZIP) file.
+     */
     private static final byte[] JAR_MAGIC = { 'P', 'K', 3, 4 };
 
     @Override
@@ -169,9 +171,11 @@ public class DefaultVFS extends VFS {
      * List the names of the entries in the given {@link JarInputStream} that begin with the
      * specified {@code path}. Entries will match with or without a leading slash.
      *
-     * @param jar The JAR input stream
+     * @param jar  The JAR input stream
      * @param path The leading path to match
+     *
      * @return The names of all the matching entries
+     *
      * @throws IOException If I/O errors occur
      */
     protected List<String> listResources(JarInputStream jar, String path) throws IOException {
@@ -213,7 +217,9 @@ public class DefaultVFS extends VFS {
      * method returns null.
      *
      * @param url The URL of the JAR entry.
+     *
      * @return The URL of the JAR file, if one is found. Null if not.
+     *
      * @throws MalformedURLException
      */
     protected URL findJarForResource(URL url) throws MalformedURLException {
@@ -312,10 +318,10 @@ public class DefaultVFS extends VFS {
     /**
      * Returns true if the resource located at the given URL is a JAR file.
      *
-     * @param url The URL of the resource to test.
+     * @param url    The URL of the resource to test.
      * @param buffer A buffer into which the first few bytes of the resource are read. The buffer
-     *            must be at least the size of {@link #JAR_MAGIC}. (The same buffer may be reused
-     *            for multiple calls as an optimization.)
+     *               must be at least the size of {@link #JAR_MAGIC}. (The same buffer may be reused
+     *               for multiple calls as an optimization.)
      */
     protected boolean isJar(URL url, byte[] buffer) {
         InputStream is = null;

@@ -14,6 +14,8 @@
  * limitations under the License.
  *
  * Logging proxies that logs any JDBC statement.
+ *
+ * Logging proxies that logs any JDBC statement.
  */
 /**
  * Logging proxies that logs any JDBC statement.

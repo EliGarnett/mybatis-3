@@ -26,8 +26,8 @@ import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
 /**
- * @since 3.4.5
  * @author Tomas Rohovsky
+ * @since 3.4.5
  */
 @UsesJava8
 public class LocalDateTimeTypeHandler extends BaseTypeHandler<LocalDateTime> {

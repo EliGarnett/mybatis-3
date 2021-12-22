@@ -48,13 +48,14 @@ public interface Cache {
     String getId();
 
     /**
-     * @param key Can be any object but usually it is a {@link CacheKey}
+     * @param key   Can be any object but usually it is a {@link CacheKey}
      * @param value The result of a select.
      */
     void putObject(Object key, Object value);
 
     /**
      * @param key The key
+     *
      * @return The object stored in the cache.
      */
     Object getObject(Object key);
@@ -69,8 +70,8 @@ public interface Cache {
      * This way other threads will wait for the value to be
      * available instead of hitting the database.
      *
-     *
      * @param key The key
+     *
      * @return Not used
      */
     Object removeObject(Object key);

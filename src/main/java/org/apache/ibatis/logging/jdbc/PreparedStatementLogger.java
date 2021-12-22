@@ -31,7 +31,6 @@ import java.sql.ResultSet;
  *
  * @author Clinton Begin
  * @author Eduardo Macarron
- *
  */
 public final class PreparedStatementLogger extends BaseJdbcLogger implements InvocationHandler {
 

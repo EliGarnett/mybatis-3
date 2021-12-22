@@ -34,7 +34,6 @@ import java.util.Set;
  *
  * @author Clinton Begin
  * @author Eduardo Macarron
- *
  */
 public final class ResultSetLogger extends BaseJdbcLogger implements InvocationHandler {
 

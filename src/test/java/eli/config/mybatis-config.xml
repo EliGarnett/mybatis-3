@@ -77,7 +77,7 @@
     </environments>
 
     <mappers>
-        <package name="mapper"/>
+        <package name="classpath:mapper"/>
     </mappers>
 
 

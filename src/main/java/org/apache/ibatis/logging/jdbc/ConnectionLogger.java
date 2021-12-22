@@ -31,7 +31,6 @@ import java.sql.Statement;
  *
  * @author Clinton Begin
  * @author Eduardo Macarron
- *
  */
 public final class ConnectionLogger extends BaseJdbcLogger implements InvocationHandler {
 

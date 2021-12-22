@@ -27,8 +27,8 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
 /**
- * @since 3.4.5
  * @author Tomas Rohovsky
+ * @since 3.4.5
  */
 @UsesJava8
 public class ZonedDateTimeTypeHandler extends BaseTypeHandler<ZonedDateTime> {

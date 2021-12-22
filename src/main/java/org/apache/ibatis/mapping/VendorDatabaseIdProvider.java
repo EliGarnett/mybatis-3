@@ -31,9 +31,9 @@ import java.util.Properties;
  *
  * It returns database product name as a databaseId
  * If the user provides a properties it uses it to translate database product name
- * key="Microsoft SQL Server", value="ms" will return "ms" 
- * It can return null, if no database product name or 
- * a properties was specified and no translation was found 
+ * key="Microsoft SQL Server", value="ms" will return "ms"
+ * It can return null, if no database product name or
+ * a properties was specified and no translation was found
  *
  * @author Eduardo Macarron
  */

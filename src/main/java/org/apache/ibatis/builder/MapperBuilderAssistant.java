@@ -458,7 +458,9 @@ public class MapperBuilderAssistant extends BaseBuilder {
         return javaType;
     }
 
-    /** Backward compatibility signature */
+    /**
+     * Backward compatibility signature
+     */
     public ResultMapping buildResultMapping(
             Class<?> resultType,
             String property,
@@ -485,7 +487,9 @@ public class MapperBuilderAssistant extends BaseBuilder {
         return configuration.getLanguageRegistry().getDriver(langClass);
     }
 
-    /** Backward compatibility signature */
+    /**
+     * Backward compatibility signature
+     */
     public MappedStatement addMappedStatement(
             String id,
             SqlSource sqlSource,

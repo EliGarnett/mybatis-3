@@ -25,8 +25,8 @@ import java.sql.SQLException;
 import java.time.Year;
 
 /**
- * @since 3.4.5
  * @author Björn Raupach
+ * @since 3.4.5
  */
 @UsesJava8
 public class YearTypeHandler extends BaseTypeHandler<Year> {

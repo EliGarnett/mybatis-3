@@ -30,7 +30,6 @@ import java.sql.Statement;
  *
  * @author Clinton Begin
  * @author Eduardo Macarron
- *
  */
 public final class StatementLogger extends BaseJdbcLogger implements InvocationHandler {
 

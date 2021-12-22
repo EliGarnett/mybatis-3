@@ -14,6 +14,8 @@
  * limitations under the License.
  *
  * Bings mapper interfaces with mapped statements
+ *
+ * Bings mapper interfaces with mapped statements
  */
 /**
  * Bings mapper interfaces with mapped statements

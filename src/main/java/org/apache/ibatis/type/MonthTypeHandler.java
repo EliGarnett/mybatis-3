@@ -25,9 +25,8 @@ import java.sql.SQLException;
 import java.time.Month;
 
 /**
- *
- * @since 3.4.5
  * @author Björn Raupach
+ * @since 3.4.5
  */
 @UsesJava8
 public class MonthTypeHandler extends BaseTypeHandler<Month> {

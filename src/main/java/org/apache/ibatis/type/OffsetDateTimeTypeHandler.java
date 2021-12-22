@@ -27,8 +27,8 @@ import java.time.OffsetDateTime;
 import java.time.ZoneId;
 
 /**
- * @since 3.4.5
  * @author Tomas Rohovsky
+ * @since 3.4.5
  */
 @UsesJava8
 public class OffsetDateTimeTypeHandler extends BaseTypeHandler<OffsetDateTime> {

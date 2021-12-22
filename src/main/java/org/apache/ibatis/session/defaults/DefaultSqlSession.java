@@ -41,7 +41,6 @@ import java.util.List;
 import java.util.Map;
 
 /**
- *
  * The default implementation for {@link SqlSession}.
  * Note that this class is not Thread-Safe.
  *

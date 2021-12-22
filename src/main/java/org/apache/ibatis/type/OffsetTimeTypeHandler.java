@@ -26,8 +26,8 @@ import java.sql.Time;
 import java.time.OffsetTime;
 
 /**
- * @since 3.4.5
  * @author Tomas Rohovsky
+ * @since 3.4.5
  */
 @UsesJava8
 public class OffsetTimeTypeHandler extends BaseTypeHandler<OffsetTime> {
