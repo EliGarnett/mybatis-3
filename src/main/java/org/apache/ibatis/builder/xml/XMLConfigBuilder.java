@@ -1,19 +1,18 @@
 /**
- * Copyright 2009-2017 the original author or authors.
+ *    Copyright 2009-2021 the original author or authors.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *       http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
  */
-
 package org.apache.ibatis.builder.xml;
 
 import org.apache.ibatis.builder.BaseBuilder;
@@ -120,6 +119,7 @@ public class XMLConfigBuilder extends BaseBuilder {
             environmentsElement(root.evalNode("environments"));
             databaseIdProviderElement(root.evalNode("databaseIdProvider"));
             typeHandlerElement(root.evalNode("typeHandlers"));
+            // 解析映射器配置
             mapperElement(root.evalNode("mappers"));
         } catch (Exception e) {
             throw new BuilderException("Error parsing SQL Mapper Configuration. Cause: " + e, e);
@@ -366,14 +366,25 @@ public class XMLConfigBuilder extends BaseBuilder {
 
     private void mapperElement(XNode parent) throws Exception {
         if (parent != null) {
+            // 对<mappers>标签内的子标签列表进行遍历，其子标签包含<mapper>和<package>
             for (XNode child : parent.getChildren()) {
+                // 如果子标签是package，则从标签中取出name的属性值，调用configuration的addMappers方法，按照包路径的添加方式，将package目录下的mapper添加
                 if ("package".equals(child.getName())) {
                     String mapperPackage = child.getStringAttribute("name");
                     configuration.addMappers(mapperPackage);
                 } else {
+                    /**
+                     * 如果子标签不是package，那么就是mapper
+                     * mapper子标签有三个属性，分别为
+                     * resource：使用相对于类路径的资源引用
+                     * url：使用完全限定资源定位
+                     * class：使用映射接口实现类的完全限定名
+                     * 分别取出这三个属性的值
+                     */
                     String resource = child.getStringAttribute("resource");
                     String url = child.getStringAttribute("url");
                     String mapperClass = child.getStringAttribute("class");
+                    //
                     if (resource != null && url == null && mapperClass == null) {
                         ErrorContext.instance().resource(resource);
                         InputStream inputStream = Resources.getResourceAsStream(resource);

@@ -1,19 +1,18 @@
 /**
- * Copyright 2009-2017 the original author or authors.
+ *    Copyright 2009-2021 the original author or authors.
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *       http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
  */
-
 package org.apache.ibatis.session.defaults;
 
 import org.apache.ibatis.binding.BindingException;
@@ -166,10 +165,13 @@ public class DefaultSqlSession implements SqlSession {
         select(statement, null, RowBounds.DEFAULT, handler);
     }
 
+    // 这里的statement是mapper的namespace + SQL的id构成的同一个id，configuration会缓存这个id和对应的MapperStatement对象
     @Override
     public void select(String statement, Object parameter, RowBounds rowBounds, ResultHandler handler) {
         try {
+            // MapperStatement对象是mybatis框架重要的一个对象，用来表示一个XML中的一个SQL节点
             MappedStatement ms = configuration.getMappedStatement(statement);
+            // 将mapperStatement对象交给executor对象去进行执行
             executor.query(ms, wrapCollection(parameter), rowBounds, handler);
         } catch (Exception e) {
             throw ExceptionFactory.wrapException("Error querying database.  Cause: " + e, e);

@@ -1,5 +1,5 @@
 /**
- * Copyright 2009-2017 the original author or authors.
+ * Copyright 2009-2021 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +30,8 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * MappedStatement表示的是XML种的一个SQL，类当中的很多字段都是SQL种对应的属性。
+ *
  * @author Clinton Begin
  */
 public final class MappedStatement {
@@ -38,16 +40,20 @@ public final class MappedStatement {
 
     private Configuration configuration;
 
+    // SQL的id
     private String id;
 
+    // 尝试影响驱动程序每次批量返回的结果行数和这个设置值相等
     private Integer fetchSize;
 
     private Integer timeout;
 
+    //Statement的类型，STATEMENT/PREPARE/CALLABLE
     private StatementType statementType;
 
     private ResultSetType resultSetType;
 
+    // 表示解析出来的SQL，是真正表示SQL的字段
     private SqlSource sqlSource;
 
     private Cache cache;

@@ -1,5 +1,5 @@
 /**
- * Copyright 2009-2017 the original author or authors.
+ * Copyright 2009-2021 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -76,6 +76,7 @@ public class XMLStatementBuilder extends BaseBuilder {
 
         Class<?> resultTypeClass = resolveClass(resultType);
         String resultSetType = context.getStringAttribute("resultSetType");
+        // 从标签中读取 statementType属性，默认为 PreparedStatement
         StatementType statementType = StatementType.valueOf(context.getStringAttribute("statementType", StatementType.PREPARED.toString()));
         ResultSetType resultSetTypeEnum = resolveResultSetType(resultSetType);
 
@@ -109,6 +110,7 @@ public class XMLStatementBuilder extends BaseBuilder {
                     ? Jdbc3KeyGenerator.INSTANCE : NoKeyGenerator.INSTANCE;
         }
 
+        //
         builderAssistant.addMappedStatement(id, sqlSource, statementType, sqlCommandType,
                 fetchSize, timeout, parameterMap, parameterTypeClass, resultMap, resultTypeClass,
                 resultSetTypeEnum, flushCache, useCache, resultOrdered,

@@ -1,5 +1,5 @@
 /**
- * Copyright 2009-2017 the original author or authors.
+ * Copyright 2009-2021 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,15 @@
 
 package org.apache.ibatis.executor.resultset;
 
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.mapping.ResultMap;
+import org.apache.ibatis.session.Configuration;
+import org.apache.ibatis.type.JdbcType;
+import org.apache.ibatis.type.ObjectTypeHandler;
+import org.apache.ibatis.type.TypeHandler;
+import org.apache.ibatis.type.TypeHandlerRegistry;
+import org.apache.ibatis.type.UnknownTypeHandler;
+
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -27,15 +36,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.mapping.ResultMap;
-import org.apache.ibatis.session.Configuration;
-import org.apache.ibatis.type.JdbcType;
-import org.apache.ibatis.type.ObjectTypeHandler;
-import org.apache.ibatis.type.TypeHandler;
-import org.apache.ibatis.type.TypeHandlerRegistry;
-import org.apache.ibatis.type.UnknownTypeHandler;
 
 /**
  * @author Iwao AVE!
